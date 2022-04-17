@@ -58,3 +58,11 @@ Footer {
 .author {
   font-weight: 600;
 }
+.card-horizontal img{
+  width: 45% !important;
+}
+
+.card-horizontal{
+  display: flex;
+  flex: 1 1 auto;
+}

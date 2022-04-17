@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Main from '../mainComponent/main';
-
 class Nav extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +30,6 @@ class Nav extends Component {
             isLoaded: true,
             items: this.shuffleArray(result.articles).slice(-5)
           });
-          console.log(this.state.items)
         },
         (error) => {
           this.setState({
@@ -51,6 +48,8 @@ class Nav extends Component {
   }
   render() {
     var Handlechange = e => {
+        window.localStorage.setItem("isSelected", "false");
+        window.dispatchEvent(new Event("storage"));
     }
     const { error, isLoaded, items } = this.state;
     if (error) {
@@ -63,7 +62,7 @@ class Nav extends Component {
           <a className='btn btn-primary mb-2' onClick={Handlechange}>Homepage</a>
           {items.map(item => (
             <div className="card mb-2" key={item.author}>
-              <img className="card-img-left" src={item.urlToImage} alt="Card image cap" />
+              <img className="card-img-top" src={item.urlToImage} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-subtitle">{item.author}</p>
