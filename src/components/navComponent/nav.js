@@ -28,7 +28,7 @@ class Nav extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: this.shuffleArray(result.articles).slice(-5)
+            items: this.shuffleArray(result.articles).slice(Math.max(this.shuffleArray(result.articles).length - 5, 0))
           });
         },
         (error) => {

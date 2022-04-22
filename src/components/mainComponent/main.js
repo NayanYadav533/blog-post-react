@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import XMLdata from "../../assets/data/db.xml";
 import XMLParser from 'react-xml-parser';
 import axios from "axios";
-let data = [];
+
 class Main extends Component {
+  data = [];
   constructor(props){
     super(props);
     this.state = {
@@ -39,9 +40,12 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      blogData: this.getXmlData()
-    });
+    this.data = this.getXmlData();
+    setInterval(() => {
+      this.setState({
+        blogData: this.data
+      });
+    }, 2000);
   }
   
   render() {
@@ -56,8 +60,7 @@ class Main extends Component {
     }
     window.addEventListener('storage', () => {
       this.setState({ isSelected: localStorage.getItem('isSelected') === "true" });
-
-    })
+    });
     let ap = this.state.activePost;
     const x = this.state.isSelected;
 
@@ -74,7 +77,7 @@ class Main extends Component {
                 <p className='author'>
                   {ap.author}
                 </p>
-                <img className='my-3 w-75 mx-auto' src={ap.summary.img} />
+                <img className='my-3 w-75 mx-auto' src={ap.img} />
                 <p>{ap.body}</p>
               </div>
               :
@@ -91,7 +94,7 @@ class Main extends Component {
                       </div>
                     </div>
                   )
-                }): <div>Data Not Found</div>}
+                }): <div>Loading...</div>}
               </div>
           }
         </div>

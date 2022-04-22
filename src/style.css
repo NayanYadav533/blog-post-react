@@ -66,3 +66,7 @@ Footer {
   display: flex;
   flex: 1 1 auto;
 }
+
+Main .card h1{
+  cursor:pointer;
+}
