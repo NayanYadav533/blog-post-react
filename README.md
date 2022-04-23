@@ -5,8 +5,9 @@ I have created a single page website using ReactJS that consists of 4 sections H
 **How to run application.**
 
 Step 1: Get the clone of repository and open it in VS CODE.<br />
-Step 2: Run command - npm install<br />
-Step 3: Run command - npm start<br />
+Step 2: Paste the API KEY mentioned in submission in SRC->Components->NavComponent->Nav.js on line number 25 in front of apiKey= <br>
+Step 3: Run command - npm install<br />
+Step 4: Run command - npm start<br />
 
 And then it will redirect to the browser, where the webpage will be displayed. 
 
